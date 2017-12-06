@@ -6,7 +6,7 @@ Created on Sat Oct 21 19:08:30 2017
 """
 
 
-from 代理 import proxy_crawl              #返回一个代理列表，参数为n,代理数量为n*100
+from proxy import proxy_crawl              #返回一个代理列表，参数为n,代理数量为n*100
 import urllib.request
 import http.cookiejar
 import re
@@ -82,9 +82,9 @@ for i in range(len(IDlist)):
         price_crawl(IDlist[i],proxy_addr)
     except urllib.error.URLError as e:
         if hasattr(e,"code"):
-            print(e)
+            print(e.code)
         if hasattr(e,"reason"):
-            print(e)
+            print(e.reason)
         p+=1
         proxy_addr=proxylist[p]
 
